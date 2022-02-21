@@ -1,0 +1,27 @@
+version: "3"
+services:
+  client:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    environment:
+      - SITE_URL=${SITE_URL}
+      - GOOGLE_SITE_VERIFICATION=${GOOGLE_SITE_VERIFICATION}
+      - FACEBOOK_APP_ID=${FACEBOOK_APP_ID}
+      - API_URL=${API_URL}
+      - FORM_URL=${FORM_URL}
+      - SUBSCRIBE_URL=${SUBSCRIBE_URL}
+      - QUIZ_URL=${QUIZ_URL}
+      - FUNCTIONS_URL=${FUNCTIONS_URL}
+      - GATSBY_CONNECTION_TIMEOUT=${GATSBY_CONNECTION_TIMEOUT}
+      - GATSBY_STALL_RETRY_LIMIT=${GATSBY_STALL_RETRY_LIMIT}
+      - TWITTER_USERNAME=${TWITTER_USERNAME}
+      - GOOGLE_TAG_MANAGER=${GOOGLE_TAG_MANAGER}
+      - BIGCOMMERCE_CLIENT_ID=${BIGCOMMERCE_CLIENT_ID}
+      - BIGCOMMERCE_SECRET=${BIGCOMMERCE_SECRET}
+      - BIGCOMMERCE_ACCESS_TOKEN=${BIGCOMMERCE_ACCESS_TOKEN}
+      - BIGCOMMERCE_STORE_HASH=${BIGCOMMERCE_STORE_HASH}
+    volumes:
+      - ./src:/app/src # Links the source files to the running container
+    ports:
+      - "3000:8000"
